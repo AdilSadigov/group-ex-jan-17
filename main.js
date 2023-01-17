@@ -4,3 +4,73 @@ let data = [
 ];
 
 console.log(data);
+
+function sortArray(arr) {
+  let result = arr.sort((a, b) => a - b);
+  return result;
+}
+
+let sorted = sortArray(data)
+console.log(sorted)
+
+function getTotal(arr) {
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++){
+    sum += arr[i]
+  }
+  return sum;
+}
+
+let total = getTotal(data)
+console.log(total)
+
+function even (x) {
+  result = x % 2;
+  if (result === 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+let isEven = even(data)
+console.log(isEven)
+
+function getEven(arr) {
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (even(arr[i])) {
+      v.push(arr[i])
+    }
+  }
+  return v;
+}
+
+function getOdd(arr) {
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!even(arr[i])) {
+      v.push(arr[i])
+    }
+  }
+  return v;
+}
+
+console.log(getEven(data))
+
+console.log(getOdd(data))
+
+function a (arr){
+  let sumOdd = getTotal(getOdd(arr));
+  let sumEven = getTotal(getEven(arr));
+  if (sumOdd > sumEven) {
+    return getOdd(arr)
+  }
+  else {
+    return getEven(arr)
+  }
+}
+
+let e = a(data)
+console.log(e)
